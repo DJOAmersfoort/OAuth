@@ -1,0 +1,29 @@
+RewriteEngine on
+
+RewriteRule ^api/([A-Za-z0-9]+)/([A-Za-z0-9,_]+)$ /api/api.php?request=$2&api=$1 [QSA]
+RewriteRule ^api/([A-Za-z0-9]+)/([A-Za-z0-9,_]+)/$ /api/api.php?request=$2&api=$1 [QSA]
+RewriteRule ^api/([A-Za-z0-9]+)$ /api/api.php?api=$1
+RewriteRule ^api/([A-Za-z0-9]+)/$ /api/api.php?api=$1
+RewriteRule ^api/$ /api/api.php
+RewriteRule ^api$ /api/api.php
+
+
+RewriteRule ^sml/user/([0-9]+).png$ /lib/userimage.php?user=$1
+
+RewriteRule ^aanmelden/([A-Za-z0-9]+)$ /index.php?p=aanmelden-$1
+RewriteRule ^user/([A-Za-z0-9]+)$ /index.php?p=user-$1
+RewriteRule ^apps/([0-9]+)$ /index.php?p=apps-$1
+RewriteRule ^ik/2stepauth$ /index.php?p=ik-2stepauth
+RewriteRule ^ik/edit$ /index.php?p=ik-edit
+RewriteRule ^ik/2stepauth/check$ /index.php?p=ik-2stepauth-check
+RewriteRule ^login/forgot$ /index.php?p=login-forgot
+
+RewriteRule ^([a-zA-Z0-9]+)$ /index.php?p=$1 [QSA]
+
+ErrorDocument 404 /index.php?p=404
+
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://oauth.djoamersfoort.nl/$1 [R,L]
+
+RewriteCond %{HTTP_HOST} !^oauth.djoamersfoort.nl$ [NC]
+RewriteRule ^(.*)$ https://oauth.djoamersfoort.nl/$1 [L,R=301]
