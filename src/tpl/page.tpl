@@ -4,11 +4,11 @@
 	<meta charset="utf-8">
 	<title>DJO OAuth - {{title}}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="{{url}}/css/bootstrap.3.0.3.min.css" rel="stylesheet">
-	<link href="{{url}}/css/site.css" rel="stylesheet">
-	<script src="{{url}}/js/jquery.1.11.1.min.js"></script>
-	<script src="{{url}}/js/bootstrap.3.0.3.min.js"></script>
-	<script src="{{url}}/js/site.js"></script>
+	<link href="{{url}}/static/css/bootstrap.3.0.3.min.css" rel="stylesheet">
+	<link href="{{url}}/static/css/site.css" rel="stylesheet">
+	<script src="{{url}}/static/js/jquery.1.11.1.min.js"></script>
+	<script src="{{url}}/static/js/bootstrap.3.0.3.min.js"></script>
+	<script src="{{url}}/static/js/site.js"></script>
 </head>
 
 <body data-page="{{pageid}}">

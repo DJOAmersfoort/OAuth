@@ -1,0 +1,3 @@
+[submodule "djo-branding"]
+	path = src/static/branding
+	url = git@gitlab.roelof.io:djo/branding.git
