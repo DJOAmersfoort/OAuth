@@ -58,6 +58,7 @@ Extra buttons
 /*
 Navigation styling
 */
+/*
 .navbar {
 	top: 15px;
 	height: 75px;
@@ -67,12 +68,12 @@ Navigation styling
 
 .navbar-brand {
 	background: url('../img/djo-logo-white.png') no-repeat center left;
-    background-size: contain;
-    min-width: 123px;
+  background-size: contain;
+  min-width: 123px;
 	max-width: 123px;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    min-height: 50px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  min-height: 50px;
 }
 
 .navbar > .container {
@@ -113,25 +114,25 @@ Navigation styling
 @media all and (min-width: 768px) {
 	.navbar-nav>li>.dropdown-menu {
 		margin-top: 14px;
-		
+
 	}
-	
+
 	.navbar-nav:not(.navbar-right) {
 		margin-left: 30px;
 	}
-	
+
 	.navbar-nav > li.active > a {
 		border-bottom: 2px #FFF solid;
 	}
-	
+
 	.navbar-nav > li > a {
 		height: 48px;
 	}
-	
+
 	.navbar-nav > li:not(.active) > a:hover, .navbar-nav > li:not(.active) > a:focus {
 		opacity: 0.7;
 	}
-	
+
 	.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
 		margin-left: 0;
 	}
@@ -141,57 +142,58 @@ Navigation styling
 	.navbar-brand {
 		margin-left: 15px;
 	}
-	
+
 	.navbar-nav > li > a:hover, .navbar-nav > li > a:focus {
 		opacity: 0.9;
 	}
-	
+
 	.navbar-nav:not(.navbar-right) > li:nth-child(1) > a {
 		background-color: rgba(24, 15, 117, 0.85) !important;
 	}
-	
+
 	.navbar-nav:not(.navbar-right) > li:nth-child(2) > a {
 		background-color: rgba(24, 15, 117, 0.8) !important;
 	}
-	
+
 	.navbar-nav:not(.navbar-right) > li:nth-child(3) > a {
 		background-color: rgba(24, 15, 117, 0.75) !important;
 	}
-	
+
 	.navbar-nav > li > a {
 		padding-top: 15px;
 		height: 50px;
 		padding-left: 30px;
 		background-color: rgba(24, 15, 117, 0.7) !important;
 	}
-	
+
 	.navbar-right {
 		margin: -7.5px -15px;
 		margin-bottom: 0;
 	}
-	
+
 	.navbar-nav:not(.navbar-right) {
 		margin-top: 12px;
 	}
-	
+
 	.navbar-toggle {
 		border-color: #FFF;
 		outline-color: transparent;
 	}
-	
+
 	.navbar-toggle:hover {
 		opacity: 0.7;
 	}
-	
+
 	.navbar-toggle > .icon-bar {
 		border-color: #FFF;
 		background-color: #FFF;
 	}
-	
+
 	.navbar-nav .open .dropdown-menu {
 		background: #fff;
 	}
 }
+*/
 
 /*
 Page title styling
@@ -202,7 +204,7 @@ Page title styling
 }
 
 .page-header small {
-	font-weight: 300;	
+	font-weight: 300;
 }
 
 .page-header h1 {
@@ -228,14 +230,14 @@ misc.
 	body[data-page='login'] .page-top {
 		margin-top: 80px;
 	}
-	
+
 	body[data-page='oauth-login'] .page-top {
 		margin-top: 100px;
 	}
 }
 
 @media(max-width: 767px) {
-	
+
 	body[data-page='oauth-login'] .page-top {
 		margin-top: 30px;
 	}

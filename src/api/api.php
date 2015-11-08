@@ -16,7 +16,7 @@ $return = array();
 
 $api = isset($_GET["api"]) && $_GET["api"] != "" ? $_GET["api"] : "noapiset";
 if($api == "v1") {
-	
+
 	if (!$server->verifyResourceRequest(OAuth2\Request::createFromGlobals())) {
 		$server->getResponse()->send();
 		exit();
@@ -25,9 +25,9 @@ if($api == "v1") {
 	$request = isset($_GET["request"]) ? $_GET["request"] : "";
 
 	$apiUser = User::create()->fromId((int) $data["user_id"]);
-	
+
 	$return['users'] = [];
-	
+
 	$return['users'][0] = [
 		"displayName" => $apiUser->getFullName()["fullName"],
 		"name" => [
@@ -40,7 +40,7 @@ if($api == "v1") {
 		"addresses" => [],
 		"isDjoMember" => $apiUser->hasAccessTo("djoMember")
 	];
-	
+
 	$addresses = $apiUser->getUserAdresses();
 	for($i = 0; $i < count($addresses); $i++) {
 		$return['users'][0]["addresses"][] = [
@@ -49,13 +49,13 @@ if($api == "v1") {
 			"town" => $addresses[$i]["adres_town"]
 		];
 	}
-	
+
 } else if($api == "OAuth") {
 	$allowed = array("access_token", "authorize");
 	if(isset($_GET["request"]) && in_array($_GET["request"], $allowed)) {
-		
+
 		if($_GET["request"] == "authorize") {
-		
+
 			$_GET["state"] = "abc";
 			$request = OAuth2\Request::createFromGlobals();
 			$response = new OAuth2\Response();
@@ -63,7 +63,11 @@ if($api == "v1") {
 				$response->send();
 				exit();
 			} elseif(!$user->isLoggedIn()) {
-				exit(require_once("login.tpl"));
+
+				$loginpage = file_get_contents(__DIR__ . "/login.tpl");
+				$loginpage = str_replace("{{url}}", "//".$_SERVER["HTTP_HOST"], $loginpage);
+				exit($loginpage);
+
 			} elseif(!in_array($request->query["client_id"], $user->getApps())) {
 				$result = $db->where("client_id", $request->query["client_id"])->get("oauth_apps");
 				$menu = str_replace("\n", "\n\t\t\t\t", "<li>\n\t\t<a href=\"javascript:void(0);\">\n\t\t\t<i class=\" glyphicon glyphicon-user\"></i> ".ucfirst($user->getFullName()["firstName"])."&nbsp;\n\t\t\t<span class=\"label label-white tooltipTitle\" title=\"".$user->getRankInText()."\">".$user->getRankInText()."</span>&nbsp;\n\t\t\t\n\t\t</a>\n\t\t\n\t</li>\n");
@@ -73,23 +77,24 @@ if($api == "v1") {
 					"appimage" => "data:image/png;base64,".base64_encode($result[0]["img"]),
 					"appinfotext" => $info["text"],
 					"appid" => $request->query["client_id"],
-					"menu" => $menu	
+					"menu" => $menu,
+					"url" => "//".$_SERVER["HTTP_HOST"]
 				]));
 			}
 			$server->handleAuthorizeRequest($request, $response, true, $user->getId());
 			$response->send();
 			exit();
-			
+
 		} elseif($_GET["request"] == "access_token") {
 
 			$server->handleTokenRequest(OAuth2\Request::createFromGlobals())->send();
 			exit();
-			
+
 		}
 	} else {
 		$return["error"] = "No valid action set, Please read the documentation for more info.";
 	}
-	
+
 } else {
 	$return["error"] = "No valid api set, Please read the documentation for more info.";
 }
