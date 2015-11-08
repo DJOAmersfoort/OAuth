@@ -66,7 +66,7 @@ class MysqliDb
     {
         if($port == NULL)
             $port = ini_get('mysqli.default_port');
-        
+
         $this->_mysqli = new mysqli($host, $username, $password, $db, $port)
             or die('There was a problem connecting to the database');
 
@@ -334,7 +334,7 @@ class MysqliDb
                 // Determines what data type the where column is, for binding purposes.
 				$actualvalue = gettype($value) == "array" ? $value[0] : $value;
 				$insettype = gettype($value) == "array" ? $value[1] : "=";
-				
+
                 $this->_whereTypeList .= $this->_determineType($actualvalue);
 
                 // Prepares the reset of the SQL query.
@@ -422,6 +422,8 @@ class MysqliDb
             $row[$field->name] = null;
             $parameters[] = & $row[$field->name];
         }
+
+        $stmt->store_result();
 
         call_user_func_array(array($stmt, 'bind_result'), $parameters);
 

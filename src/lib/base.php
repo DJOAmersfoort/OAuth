@@ -25,14 +25,16 @@ if(isset($_GET["phpinfo"])) {
 
 if($config["maintenance"] && !isset($_SESSION["maint"]) && !isset($api)) {
 	exit(file_get_contents("tpl/maintenance.tpl"));
-} 
+}
+
+require_once(__DIR__ . "/passwordhash.php");
 
 function htmlspecial_array(&$variable) {
 	foreach ($variable as &$value) {
-		if (!is_array($value)) { 
-			$value = htmlspecialchars($value); 
-		} else { 
-			htmlspecial_array($value); 
+		if (!is_array($value)) {
+			$value = htmlspecialchars($value);
+		} else {
+			htmlspecial_array($value);
 		}
 	}
 }
@@ -51,16 +53,16 @@ if(!$user->isLoggedIn() && isset($_COOKIE["login"]) && $_COOKIE["login"] != "") 
 require_once(__DIR__."/formkey.php");
 require_once(__DIR__."/layout.php");
 
-if (!function_exists('getallheaders')) { 
-	function getallheaders() { 
-		$headers = []; 
-		foreach ($_SERVER as $name => $value) { 
-			if (substr($name, 0, 5) == 'HTTP_') { 
-				$headers[str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))))] = $value; 
-			} 
-		} 
-		return $headers; 
-	} 
+if (!function_exists('getallheaders')) {
+	function getallheaders() {
+		$headers = [];
+		foreach ($_SERVER as $name => $value) {
+			if (substr($name, 0, 5) == 'HTTP_') {
+				$headers[str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))))] = $value;
+			}
+		}
+		return $headers;
+	}
 }
 
 function getUserIP() {
@@ -95,7 +97,7 @@ function generateCaptcha() { //returns ["question", "answer"]
 
 function checkPassword($password) {
 	$score = 1;
-	
+
 	if (strlen($password) < 1)
 		return 0;
 	if (strlen($password) < 4)
@@ -112,13 +114,13 @@ function checkPassword($password) {
 		$score++;
 	if (strlen($password) <= 6)
 		$score--;
-	
+
 	return $score;
 }
 
 function chechifuserexists($email) {
 	global $db;
-	
+
 	if($result = $db->where("email", $email)->get("users", 1)) {
 		return count($result) > 0;
 	} else {
