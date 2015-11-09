@@ -7,7 +7,7 @@
         </h1>
       </div>
       <p>
-        DJO OAuth is een systeem zodat niet DJO'ers en DJO'ers in het geval de identity provider niet werkt zich kunnen identificeren zodat zij zich kunnen aanmelden voor evenementen of andere activiteiten. Heb je nog geen account?
+        DJO OAuth is een systeem voor niet DJO'ers en DJO'ers in het geval de identity provider niet werkt zodat zij zich kunnen identificeren en kunnen aanmelden voor evenementen of andere activiteiten. Heb je nog geen account?
         <a href="/register">Meld je dan eerst aan!</a>
       </p>
       <br />
@@ -32,7 +32,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<p>
 				<a href="/login/forgot" class="btn btn-link" style="padding-left: 0; margin-left: 0;">wachtwoord vergeten?</a>
 				 /
@@ -40,14 +40,14 @@
 				<!--<button type="button" id="login_remember" class="btn btn-primary" data-toggle="button">Onthouden</button>-->
 				&nbsp;&nbsp;<button type="submit" class="btn btn-djo pull-right">Login</button>
 			</p>
-			
+
 			<input type="hidden" name="login_remember" value="false" />
 			<input type="hidden" name="type" value="login" />
 		</div>
 	</div>
 </form>
 <script type="text/javascript">
-function validateEmail(email) { 
+function validateEmail(email) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
 }
@@ -95,7 +95,7 @@ $("#loginform").submit(function() {
 						window.location = "/";
 					}
 				}
-				
+
 			},
 			error: function(xhr, status, error) {
 				setupError("Er ging iets verkeerd met het inloggen");
