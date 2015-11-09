@@ -7,7 +7,7 @@
 	</h1>
 </div>
 <div class="col-md-6 col-sm-8 col-xs-10 col-md-offset-3 col-sm-offset-2 col-xs-offset-1">
-	
+
 	<div class="panel panel-danger">
 		<div class="panel-body">
 			<p>
@@ -44,11 +44,11 @@
 					$(".form-control").prop("disabled", false);
 					$("#2stepauth_code").first().focus();
 					setupError(returndata.error);
-					
+
 					return;
 				}
 				if (typeof returndata.success !== "undefined") {
-					window.location = "/ik";
+					window.location = "/me";
 					return;
 				}
 				$(".form-control").prop("disabled", false);

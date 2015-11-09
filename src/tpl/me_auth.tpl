@@ -36,10 +36,10 @@
 						Scan de onderstaande QR code via de app met je telefoon/tablet.
 					</p>
 					<br />
-					<img class="center-block" src="http://www.google.com/chart?chs=200x200&chld=M|0&cht=qr&chl=otpauth://totp/DJOOAuth?secret={token}" alt="QR code">
+					<img class="center-block" src="http://chart.googleapis.com/chart?chs=200x200&chld=M%7C0&cht=qr&chl={{qrurl}}" alt="QR code">
 					<br />
 					<p>
-						Heb je geen QR code scanner? gebruik dan <b>{token}</b> bij het invullen van een nieuwe 2-staps app secret
+						Heb je geen QR code scanner? gebruik dan <b>{{token}}</b> bij het invullen van een nieuwe 2-staps app secret
 					</p>
 				</div>
 			</div>
@@ -55,7 +55,7 @@
 					<h1 style="color: rgb(174, 255, 158); margin: 0;"><b>3&nbsp;&nbsp;&nbsp;</b></h1>
 				</div>
 				<div class="pull-right">
-					<a class="btn btn-success" style="margin-bottom: 0px;" href="/ik/2stepauth/check">Doorgaan</a>
+					<a class="btn btn-success" style="margin-bottom: 0px;" href="/me/2stepauth/check">Doorgaan</a>
 				</div>
 				<div class="media-body" style="margin-top: 8px;">
 					<p>

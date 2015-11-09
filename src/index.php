@@ -28,7 +28,7 @@ if ($user->isLoggedIn()) {
 		[
 			"position" => "right",
 			"subMenu" => [
-				["name" => "<span class=\"glyphicon glyphicon-user\"></span> Mijn Profiel", "pageurl" => "ik", "header" => "Account"],
+				["name" => "<span class=\"glyphicon glyphicon-user\"></span> Mijn Profiel", "pageurl" => "me", "header" => "Account"],
 				["name" => "<span class=\"glyphicon glyphicon-list-alt\"></span> Mijn Apps", "pageurl" => "apps"],
 				["divider" => true, "name" => "<span class=\"glyphicon glyphicon-lock\"></span> Uitloggen", "header" => "Sessie", "pageurl" => "logout"]
 			]

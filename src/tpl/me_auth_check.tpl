@@ -58,7 +58,7 @@
 						return;
 					}
 					if (typeof returndata.success !== "undefined") {
-						window.location = "/ik";
+						window.location = "/me";
 						return;
 					}
 					$(".form-control").prop("disabled", false);

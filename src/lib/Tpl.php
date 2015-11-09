@@ -28,7 +28,7 @@ Class Tpl extends Mustache_Engine {
 			"url" => "//".$_SERVER["HTTP_HOST"],
 			"title" => $pagename,
 			"subtitle" => $subpagename,
-			"pageid" => implode("-", $pagetocheck)
+			"pageid" => isset($pagetocheck) && !empty($pagetocheck) ? implode("-", $pagetocheck) : ""
 		]);
 		return parent::render($template, $data);
 	}

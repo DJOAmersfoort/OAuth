@@ -1,8 +1,9 @@
 <?php
+require_once(__DIR__ . "/../2fa.php");
 
 Data::getInstance()->registerHandler("2fa_check", function($data, $helper) {
 	global $user;
-	
+
 	if($user->isTwoFactorAuthOn() == true) {
 		return $helper->error("2-staps authenticatie is al aan.");
 	} elseif(!isset($data["code"])) {
@@ -26,7 +27,7 @@ Data::getInstance()->registerHandler("2fa_check", function($data, $helper) {
 
 Data::getInstance()->registerHandler("2fa_disable", function($data, $helper) {
 	global $user;
-	
+
 	if($user->isTwoFactorAuthOn() == false) {
 		return $helper->error("2-staps authenticatie staat nog niet aan.");
 	} elseif(!isset($data["code"])) {

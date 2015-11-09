@@ -8,7 +8,7 @@
 </div>
 <div class="row">
 	<div class="col-md-4 col-sm-6">
-		<h3>Jouw gegevens <a href="/ik/edit"><small><small>Aanpassen</small></small></a></h3>
+		<h3>Jouw gegevens <a href="/me/edit"><small><small>Aanpassen</small></small></a></h3>
 		<div class="form-horizontal">
 			<div class="form-group">
 				<label class="col-xs-5 control-label">Voornaam</label>
@@ -59,7 +59,7 @@
 			<div class="form-group">
 				<label class="col-xs-5 control-label">2-staps authenticatie</label>
 				<div class="col-xs-7">
-					<p class="form-control-static"><a href="/ik/2stepauth" style="text-decoration: none;">
+					<p class="form-control-static"><a href="/me/2stepauth" style="text-decoration: none;">
 							<span class="label label-{{#2fa}}success{{/2fa}}{{^2fa}}danger{{/2fa}} tooltipTitle" title="{{#2fa}}Klik om 2-staps authenticatie uit te schakelen.{{/2fa}}{{^2fa}}Je account is niet extra beveiligd.{{/2fa}}">{{#2fa}}Aan{{/2fa}}{{^2fa}}Uit{{/2fa}}</span>
 					</a></p>
 				</div>

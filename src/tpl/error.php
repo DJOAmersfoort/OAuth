@@ -1,4 +1,7 @@
 <?php
-$pagename = "Error";
-$pagecontents .= "<div class=\"row\"><div class=\"col-xs-12\"><h3><b>er ging iets mis bij het bouwen van deze pagina:</b><br /><br />".$error."</h3></div></div>";
-?>
+http_response_code(500);
+$pagename = "500, Er ging iets mis op de server";
+$pagecontents .= $m->render(file_get_contents(__DIR__ . "/error.tpl"), [
+  "error" => $error,
+  "transistors" => rand(10,50)
+]);

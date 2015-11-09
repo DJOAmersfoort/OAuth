@@ -1,11 +1,3 @@
-<div class="page-header">
-	<h1>
-		<span id="pagetitle">{{{title}}}</span>
-		<small>
-			{{{subtitle}}}
-		</small>
-	</h1>
-</div>
 <br />
 <br />
 <br />
@@ -13,7 +5,7 @@
 	<div class="text-center">
 		<h2><span class="glyphicon glyphicon-ok"></span> &nbsp;Account aangemaakt</h2>
 		<br />
-		<p>Om het aanmeld proces te voltooien moet je op de link klikken die naar je e-mailadres ({{email}}) is gestuurd</p>
+		<p>Om het aanmeld proces te voltooien moet je op de link klikken die naar je e-mailadres ({{email}}) is gestuurd.</p>
 	</div>
 </div>
 {{#djomember}}<p class="text-center">Je DJO lid status zal eerst door een admin geverifieerd moeten worden.</p>{{/djomember}}

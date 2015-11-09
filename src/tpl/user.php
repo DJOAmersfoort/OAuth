@@ -1,11 +1,11 @@
 <?php
 if(isset($pagetocheck[1]) && $pagetocheck[1] != "" && $user->hasAccessTo("userdata")) {
-	
+
 	if($user->getId() == $pagetocheck[1]) {
-		header("Location: /ik");
+		header("Location: /me");
 		exit();
 	}
-	
+
 	try {
 		$viewUser = User::create()->fromId($pagetocheck[1]);
 		$canEditUser = $user->hasAccessTo("editUserInfo") && $user->getRank() >= $viewUser->getRank();
@@ -34,7 +34,7 @@ if(isset($pagetocheck[1]) && $pagetocheck[1] != "" && $user->hasAccessTo("userda
 			"canRemoveUser" => $canRemoveUser,
 			"canTurnOff2StepAuth" => $user->hasAccessTo("turnOff2StepAuthforOtherUsers")
 		];
-		
+
 		if($canEditUser) {
 			foreach($user->getRanks() as $rankNum=>$rank) {
 				if($rankNum-1 < $user->getRank()) {
@@ -44,7 +44,7 @@ if(isset($pagetocheck[1]) && $pagetocheck[1] != "" && $user->hasAccessTo("userda
 				}
 			}
 		}
-		
+
 		//array_reverse($rp["ranksAccessible"]);
 
 		for($i = 0; $i < count($viewUser->getApps()); $i++) {
@@ -59,7 +59,7 @@ if(isset($pagetocheck[1]) && $pagetocheck[1] != "" && $user->hasAccessTo("userda
 
 		$pagecontents = $m->render(file_get_contents("tpl/user.tpl"), $rp);
 	} catch(Exception $e) {
-	
+
 		//Lol just say the page doesn't exist :D
 		require_once("tpl/404.php");
 	}

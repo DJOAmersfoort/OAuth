@@ -8,7 +8,7 @@
 </div>
 <div class="row">
 	<div class="col-md-4 col-sm-6">
-		<h3>Gegevens <a href="/ik/edit"></a></h3>
+		<h3>Gegevens <a href="/me/edit"></a></h3>
 		<div class="form-horizontal">
 			<div class="form-group">
 				<label class="col-xs-5 control-label">Voornaam</label>
@@ -124,7 +124,7 @@
 		$("#error_rank > .close").click(function() {
 			$("#error_rank").addClass("hidden");
 		});
-		
+
 	}
 	$("#saveNewRank").click(function() {
 		$(".form-control").prop("disabled", true);
@@ -135,7 +135,7 @@
 			data: {"type": "EditRank", "rank": $("#newRank").val(), "id": {{user_id}}},
 			success: function(data) {
 				var returndata = JSON.parse(data);
-				
+
 				if (typeof returndata.error !== "undefined") {
 					errorForRankEdit(returndata.error);
 					$(".form-control").prop("disabled", false);
@@ -151,7 +151,7 @@
 			}
 		});
 	});
-	
+
 	{{#djomember}}
 	$("[data-verifybutton='true']").click(function() {
 		$.ajax({
@@ -160,7 +160,7 @@
 			data: {"type": "EditRank", "rank": 1, "id": {{user_id}}},
 			success: function(data) {
 				var returndata = JSON.parse(data);
-				
+
 				if (typeof returndata.error !== "undefined") {
 					alert(returndata.error);
 					return;
@@ -174,7 +174,7 @@
 				alert("Er ging iets mis bij het opslaan.");
 			}
 		});
-		
+
 	});
 	{{/djomember}}
 </script>
@@ -218,7 +218,7 @@
 			data: {"type": "DeleteUser", "password": $("#DeleteUserPassword").val(), "id": {{user_id}}},
 			success: function(data) {
 				var returndata = JSON.parse(data);
-				
+
 				if (typeof returndata.error !== "undefined") {
 					errorForDeleteUser(returndata.error);
 					$(".form-control").prop("disabled", false);

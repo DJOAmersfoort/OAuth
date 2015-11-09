@@ -10,12 +10,12 @@ RewriteRule ^api$ /api/api.php
 
 RewriteRule ^sml/user/([0-9]+).png$ /lib/userimage.php?user=$1
 
-RewriteRule ^aanmelden/([A-Za-z0-9]+)$ /index.php?p=aanmelden-$1
+RewriteRule ^register/([A-Za-z0-9]+)$ /index.php?p=register-$1
 RewriteRule ^user/([A-Za-z0-9]+)$ /index.php?p=user-$1
 RewriteRule ^apps/([0-9]+)$ /index.php?p=apps-$1
-RewriteRule ^ik/2stepauth$ /index.php?p=ik-2stepauth
-RewriteRule ^ik/edit$ /index.php?p=ik-edit
-RewriteRule ^ik/2stepauth/check$ /index.php?p=ik-2stepauth-check
+RewriteRule ^me/2stepauth$ /index.php?p=me-2stepauth
+RewriteRule ^me/edit$ /index.php?p=me-edit
+RewriteRule ^me/2stepauth/check$ /index.php?p=me-2stepauth-check
 RewriteRule ^login/forgot$ /index.php?p=login-forgot
 
 RewriteRule ^([a-zA-Z0-9]+)$ /index.php?p=$1 [QSA]

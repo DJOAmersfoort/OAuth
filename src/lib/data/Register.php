@@ -35,7 +35,7 @@ Data::getInstance()->registerHandler("register", function($data, $helper) {
 	$_SESSION["captcha"] = $captcha[1];
 	$returner["captcha"] = $captcha[0];
 	return $returner;
-	
+
 }, function($data, $helper) {
 	global $_COOKIE, $_SESSION, $m;
 
@@ -43,7 +43,7 @@ Data::getInstance()->registerHandler("register", function($data, $helper) {
 	$firstname = ucfirst(strtolower(preg_replace("/[^A-Za-z]/", '', $data["voornaam"])));
 	$middlename = strtolower(preg_replace("/[^A-Za-z ]/", '', $data["tussenvoegsel"]));
 	$lastname = ucfirst(strtolower(preg_replace("/[^A-Za-z]/", '', $data["achternaam"])));
-	
+
 	for( ; ;) {
 		$salt = substr(md5(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM)), 0, 22);
 		$result = $helper->db->where("password", array("%".substr($salt, 0, 21)."%", "LIKE"))->get("users", 1);
@@ -51,7 +51,7 @@ Data::getInstance()->registerHandler("register", function($data, $helper) {
 			break;
 		}
 	}
-	
+
 	$password = password_hash($data["pass"], PASSWORD_BCRYPT, array('cost' => 12, 'salt' => $salt));
 	$insertdata = array(
 		"email" => $email,
@@ -70,19 +70,19 @@ Data::getInstance()->registerHandler("register", function($data, $helper) {
 				"mobiel" => isset($data["mobile"]) && $data["mobile"] != "" ? $data["mobile"] : ""
 		))
 	);
-	
+
 	if($helper->db->insert("users", $insertdata)) {
-		
+
 		$newUser = User::create()->fromEmail($email);
 
-		
+
 		mail(
-			"", 
-			"DJO OAuth registratie", 
+			"",
+			"DJO OAuth registratie",
 			$m->render(
-				file_get_contents("tpl/emailregister.tpl"), 
+				file_get_contents("tpl/emailregister.tpl"),
 				[
-					"url" => "https://oauth.djoamersfoort.nl/aanmelden/".substr($salt, 0, 21)
+					"registrationurl" => "https://oauth.djoamersfoort.nl/register/".substr($salt, 0, 21)
 				]
 			),
 			"MIME-Version: 1.0\r\n"
@@ -90,7 +90,7 @@ Data::getInstance()->registerHandler("register", function($data, $helper) {
 				. "To: ".$insertdata["firstname"]." ".$insertdata["middlename"]." ".$insertdata["lastname"]." <".$insertdata["email"].">\r\n"
 				. "From: DJO OAuth <no-reply@djoamersfoort.nl>\r\n"
 		);
-		
+
 		$UserAddressesToRegister = [];
 		for($i = 1; $i <= (int) $data["countaddress"]; $i++) {
 			//Handle address adding
@@ -109,7 +109,7 @@ Data::getInstance()->registerHandler("register", function($data, $helper) {
 		for($i = 0; $i < count($UserAddressesToRegister); $i++) {
 			$helper->db->insert("users_addresses", $UserAddressesToRegister[$i]);
 		}
-		
+
 		if(isset($data["iscreatinginweb"]) && $data["iscreatinginweb"] == true) {
 			$_SESSION["hasregistered"] = true;
 			$_SESSION["emailregistered"] = $data["email"];
@@ -118,7 +118,7 @@ Data::getInstance()->registerHandler("register", function($data, $helper) {
 			}
 		}
 		return ["isregistered" => true];
-		
+
 	} else {
 		$returner = $helper->error("Query kon niet worden uitgevoerd");
 		$captcha = generateCaptcha();
