@@ -1,16 +1,24 @@
+<div class="page-header">
+	<h1>
+		<span id="pagetitle">{{{title}}}</span>
+		<small>
+			{{{subtitle}}}
+		</small>
+	</h1>
+</div>
 <div class="row">
 	<div class="col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1">
 		<div class="well">
 			<h4><b>OAuth gegevens</b></h4>
 			<br />
 			<p>
-		   	 	<b>Api: </b>https://oauth.djoamersfoort.nl/api/v1 <span class="label label-success">Online</span><br />
+		   	 	<b>Api: </b>https:{url}/api/v1 <span class="label label-success">Online</span><br />
 			</p>
 			<p>
-				<b>Authorisatie: </b>https://oauth.djoamersfoort.nl/api/OAuth/authorize <span class="label label-success">Online</span><br />
+				<b>Authorisatie: </b>https:{url}/api/OAuth/authorize <span class="label label-success">Online</span><br />
 			</p>
 			<p>
-		   	 	<b>Toegangs token: </b>https://oauth.djoamersfoort.nl/api/OAuth/access_token <span class="label label-success">Online</span><br />
+		   	 	<b>Toegangs token: </b>https:{url}/api/OAuth/access_token <span class="label label-success">Online</span><br />
 			</p>
 			<p>
 				<b>Versie: </b> OAuth 2.0
@@ -19,7 +27,7 @@
 		<br />
         <h1><b>OAuth 2.0</b></h1>
         <h2><b>Hoe het werkt.</b></h2>
-		<center><img src="https://yoerio.djoamersfoort.nl/img/oauth2flow.png" alt="De OAuth 2.0 workflow" class="img-responsive"/></center>
+		<center><img src="{url}/static/img/oauth2flow.png" alt="De OAuth 2.0 workflow" class="img-responsive"/></center>
 		<small>Cheat sheet! Weet je het even niet meer? Dan komt dit misschien van pas.</small>
 		<h3>Stap 1</h3>
 		<p>De app stuurt de gebruiker naar ons door, daar als de gebruiker er voor het eerst komt wachten we eerst tot de gebruiker toestemming geeft voor de app.</p>

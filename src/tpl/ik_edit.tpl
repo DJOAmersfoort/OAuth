@@ -1,3 +1,11 @@
+<div class="page-header">
+	<h1>
+		<span id="pagetitle">{{{title}}}</span>
+		<small>
+			{{{subtitle}}}
+		</small>
+	</h1>
+</div>
 <div id="error" class="alert alert-danger hidden"><strong>Oeps, </strong><span id="errortext"></span><a class="close" href="#" aria-hidden="true">&times;</a></div>
 <form role="form" id="profileform" action="javascript:void(0);" method="post">
 	<div class="row">

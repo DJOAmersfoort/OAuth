@@ -1,2 +1,2 @@
 
-<li{{#active}} class="active"{{/active}}><a href="/{{url}}">{{{name}}}</a></li>
+<li{{#active}} class="active"{{/active}}><a href="/{{pageurl}}">{{{name}}}</a></li>

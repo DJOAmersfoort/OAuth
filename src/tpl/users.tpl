@@ -1,3 +1,11 @@
+<div class="page-header">
+	<h1>
+		<span id="pagetitle">{{{title}}}</span>
+		<small>
+			{{{subtitle}}}
+		</small>
+	</h1>
+</div>
 {{#users_rangs}}
 <div class="row">
 	<h3 class="col-md-12">

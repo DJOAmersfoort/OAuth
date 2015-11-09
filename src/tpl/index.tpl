@@ -1,3 +1,11 @@
+<div class="page-header">
+	<h1>
+		<span id="pagetitle">{{{title}}}</span>
+		<small>
+			{{{subtitle}}}
+		</small>
+	</h1>
+</div>
 {{#userHasJustLoggedOut}}
 <div class="alert alert-success" style="width: 200px;">
 	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>

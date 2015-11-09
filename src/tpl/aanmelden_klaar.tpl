@@ -1,3 +1,11 @@
+<div class="page-header">
+	<h1>
+		<span id="pagetitle">{{{title}}}</span>
+		<small>
+			{{{subtitle}}}
+		</small>
+	</h1>
+</div>
 <br />
 <br />
 <br />

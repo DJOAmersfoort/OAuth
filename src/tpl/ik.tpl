@@ -1,3 +1,11 @@
+<div class="page-header">
+	<h1>
+		<span id="pagetitle">{{{title}}}</span>
+		<small>
+			{{{subtitle}}}
+		</small>
+	</h1>
+</div>
 <div class="row">
 	<div class="col-md-4 col-sm-6">
 		<h3>Jouw gegevens <a href="/ik/edit"><small><small>Aanpassen</small></small></a></h3>

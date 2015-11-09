@@ -1,6 +1,16 @@
 <form role="form" id="loginform" action="javascript:void(0);" method="post">
 	<div class="row page-top" style="">
 		<div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+      <div class="page-header" style="margin-bottom: 0;">
+        <h1>
+          <span id="pagetitle">{{{title}}}</span>
+        </h1>
+      </div>
+      <p>
+        DJO OAuth is een systeem zodat niet DJO'ers en DJO'ers in het geval de identity provider niet werkt zich kunnen identificeren zodat zij zich kunnen aanmelden voor evenementen of andere activiteiten. Heb je nog geen account?
+        <a href="/register">Meld je dan eerst aan!</a>
+      </p>
+      <br />
 			<div id="error" class="alert alert-danger hidden"><strong>Oeps, </strong><span id="errortext"></span><a class="close" href="#" aria-hidden="true">&times;</a></div>
 			<div class="form-group">
 				<div class="row">

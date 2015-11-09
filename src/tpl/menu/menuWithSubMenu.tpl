@@ -8,7 +8,7 @@
 			{{#subMenus}}{{#divider}}
 			<li class="divider"></li>
 			{{/divider}}{{#header}}<li class="dropdown-header">{{header}}</li>{{/header}}
-			<li><a href="/{{url}}">{{{name}}}</a></li>{{/subMenus}}
+			<li><a href="/{{pageurl}}">{{{name}}}</a></li>{{/subMenus}}
 		</ul>
 	</li>
 </ul>

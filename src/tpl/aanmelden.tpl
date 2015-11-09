@@ -1,3 +1,11 @@
+<div class="page-header">
+	<h1>
+		<span id="pagetitle">{{{title}}}</span>
+		<small>
+			{{{subtitle}}}
+		</small>
+	</h1>
+</div>
 <div id="error" class="alert alert-danger hidden"><strong>Oeps, </strong><span id="errortext"></span><a class="close" href="#" aria-hidden="true">&times;</a></div>
 <form role="form" id="registerform" action="javascript:void(0);" method="post">
 	<div class="row">
@@ -67,10 +75,10 @@
 		</div>
 	</div>
 	<div id="addfield_address">
-		
+
 	</div>
 	<div id="addfield_telephone">
-		
+
 	</div>
 	<button data-addfield="address" type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"></span> Adres toevoegen</button>
 	<!--&nbsp;&nbsp;<span class="visible-xs"><br /></span>
@@ -80,7 +88,7 @@
 		<div class="col-xs-12">
 			<div class="form-group">
 				<h3><span id="captchatext">{{{captcha}}}</span>? </h3>
-				<input type="text" class="form-control" data-required="de captcha" id="register_captcha" name="captcha" value="" placeholder="9001">		
+				<input type="text" class="form-control" data-required="de captcha" id="register_captcha" name="captcha" value="" placeholder="9001">
 			</div>
 		</div>
 	</div>
@@ -141,7 +149,7 @@ $("[data-addfield]").click(function() {
 });
 function CheckPassword(password) {
 	var score = 1;
-	
+
 	if (password.length < 1)
 		return 0;
 	if (password.length < 4)
@@ -159,10 +167,10 @@ function CheckPassword(password) {
 		score++;
 	if (password.length <= 6)
 		score--;
-	
+
 	return score;
 }
-function validateEmail(email) { 
+function validateEmail(email) {
 	var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	return re.test(email);
 }
@@ -196,12 +204,12 @@ $("#registerform").submit(function() {
 			data: postData,
 			success: function(data) {
 				var returndata = JSON.parse(data);
-				
+
 				if (typeof returndata.captcha !== "undefined") {
 					$("#register_captcha").val("");
 					$("#captchatext").html(returndata.captcha);
 				}
-				
+
 				if (typeof returndata.error != "undefined") {
 					$(".form-control").prop("disabled", false);
 					setupError(returndata.error);
