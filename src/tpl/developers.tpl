@@ -1,13 +1,13 @@
-<div class="page-header">
-	<h1>
-		<span id="pagetitle">{{{title}}}</span>
-		<small>
-			{{{subtitle}}}
-		</small>
-	</h1>
-</div>
 <div class="row">
 	<div class="col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1">
+    <div class="page-header">
+      <h1>
+        <span id="pagetitle">{{{title}}}</span>
+        <small>
+          {{{subtitle}}}
+        </small>
+      </h1>
+    </div>
 		<div class="well">
 			<h4><b>OAuth gegevens</b></h4>
 			<br />
