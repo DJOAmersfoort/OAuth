@@ -1,5 +1,7 @@
 <?php
 
+require_once(__DIR__."/../vendor/autoload.php");
+
 require_once(__DIR__."/config.php");
 
 require_once(__DIR__."/Autoloader.php");
@@ -8,6 +10,8 @@ Autoloader::initialize();
 header('X-Frame-Options: sameorigin');
 header('X-XSS-Protection: 1; mode=block');
 
+date_default_timezone_set("Europe/Amsterdam");
+
 if($config["devmode"] == true) {
 	ini_set('error_reporting', E_ALL);
 	error_reporting(E_ALL);
@@ -15,7 +19,7 @@ if($config["devmode"] == true) {
 
 if (session_status() == PHP_SESSION_NONE) {
 	session_set_cookie_params((3600*12));
-    session_start();
+  session_start();
 }
 
 if(isset($_GET["phpinfo"])) {
@@ -40,7 +44,6 @@ function htmlspecial_array(&$variable) {
 }
 
 $m = new Tpl;
-$m->addBulkData("user", ["email" => "test@example.com"]);
 $db = new Mysqlidb($config["db"]["host"], $config["db"]["user"], $config["db"]["pass"], $config["db"]["db"]);
 
 //Create user from session or cookie
@@ -116,16 +119,6 @@ function checkPassword($password) {
 		$score--;
 
 	return $score;
-}
-
-function chechifuserexists($email) {
-	global $db;
-
-	if($result = $db->where("email", $email)->get("users", 1)) {
-		return count($result) > 0;
-	} else {
-		return false;
-	}
 }
 
 if(isset($_GET["p"]) && $_GET["p"] === "data") {

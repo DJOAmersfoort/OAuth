@@ -24,7 +24,7 @@ Data::getInstance()->registerHandler("register", function($data, $helper) {
 		$returner = $helper->error("Vul een sterker wachtwoord in.");
 	} else if(strlen($data["email"]) >= 100 || strlen($data["pass"]) >= 32) {
 		$returner = $helper->error("Vul een korter emailadres/wachtwoord in (een wachtwoord mag maar 32 tekens lang zijn)");
-	} else if(chechifuserexists($data["email"])) {
+	} else if(User::exists($data["email"])) {
 		$returner = $helper->error("Dit email adres is al verbonden met een account.");
 	} elseif(!isset($data["captcha"]) || $data["captcha"] == "" || !isset($_SESSION["captcha"]) || $data["captcha"] != $_SESSION["captcha"]) {
 		$returner = $helper->error("Vul de captcha correct in.");

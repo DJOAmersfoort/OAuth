@@ -1,0 +1,19 @@
+{
+  "name": "djoamersfoort/oauth",
+  "description": "The DJO authentication framework for non-djo'ers",
+  "type": "project",
+  "license": "CC BY-NC 4.0",
+  "authors": [
+    {
+      "name": "Yoeri Otten",
+      "email": "yoeori@live.nl"
+    },
+    {
+      "name": "Roelof Roos",
+      "email": "github@roelof.io"
+    }
+  ],
+  "require": {
+    "bshaffer/oauth2-server-php": "~1.8"
+  }
+}

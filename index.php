@@ -4,6 +4,7 @@ $error = "";
 require_once("lib/base.php");
 
 $pagetocheck = isset($_GET["p"]) && filter_input(INPUT_GET, "p") != "" ? explode("-", filter_input(INPUT_GET, "p")) : array("index");
+
 $nogloggedinvisible = array("index", "login", "aanmelden", "developers", "register");
 $page = $error != "" ? "error" : (!$user->isLoggedIn() ? (in_array($pagetocheck[0], $nogloggedinvisible) ? (file_exists("tpl/".$pagetocheck[0].".php") ? $pagetocheck[0] : "404") : "404") : (file_exists("tpl/".$pagetocheck[0].".php") ? $pagetocheck[0] : "404"));
 
